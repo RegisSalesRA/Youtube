@@ -21,9 +21,9 @@ def index(request):
             'type': 'video'
     }
 
-        r = requests.get(search_url, params=search_params)
+        request_info = requests.get(search_url, params=search_params)
 
-        results = r.json()['items']
+        results = request_info.json()['items']
 
         video_ids = []
         for result in results:
@@ -37,12 +37,12 @@ def index(request):
             'key': settings.YOUTUBE_DATA_API_KEY,
             'part': 'snippet,contentDetails',
             'id': ','.join(video_ids),
-            'maxResults': 9,
+            'maxResults': 5,
     }
 
-        r = requests.get(video_url, params=video_params)
+        request_video = requests.get(video_url, params=video_params)
 
-        results = r.json()['items']
+        results = request_video.json()['items']
 
 
         for result in results:
