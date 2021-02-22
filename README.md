@@ -4,8 +4,8 @@
 
 **First Steps**
 
-- python3 -m venv <venv name>
-- source <venv name>/bin/activate 
+- python3 -m venv venv (eu coloco venv novamente por padrão)
+- source venv/bin/activate 
 - pip3 install -r requirements.txt
 
 - python3 manage.py runserver
